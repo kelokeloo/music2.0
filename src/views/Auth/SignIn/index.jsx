@@ -17,18 +17,25 @@ export function SignIn() {
           reject();
           return;
         }
-        const token = result.token;
-        resolve({ token });
+        const { token, userInfo } = result;
+        console.log(result);
+        resolve({ token, userInfo });
       });
     })
-      .then(({ token }) => {
+      .then(({ token, userInfo }) => {
         // 存储token
-        localStorage.setItem("token", token);
+        sessionStorage.setItem("token", token);
+        // 存储用户信息
+        Object.keys(userInfo).forEach((key) => {
+          sessionStorage.setItem(key, userInfo[key]);
+        });
       })
       .then(() => {
         Navigate("/");
       })
-      .catch(() => {});
+      .catch((e) => {
+        console.error(e);
+      });
   }
 
   function onFinishFailed(errorInfo) {
@@ -57,7 +64,7 @@ export function SignIn() {
             <Button type="primary" htmlType="submit">
               登录
             </Button>
-            <Link to="/signUp">注册</Link>
+            <Link to="/signup">注册</Link>
           </Space>
         </Form.Item>
       </Form>
