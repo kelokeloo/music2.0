@@ -1,0 +1,18 @@
+@import '../../global.scss';
+.Icon {
+  @include IconStyle
+}
+.searchBox {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.now {
+  h1{
+    font-weight: bold;
+    font-size: 2em;
+  }
+  border-bottom: 1px solid $lineColor;
+}
+.RecommendBox {
+  
+}

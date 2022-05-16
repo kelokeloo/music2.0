@@ -1,0 +1,11 @@
+.Box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  gap: .5rem;
+  .item {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: beige;
+  }
+}

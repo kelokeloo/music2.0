@@ -1,0 +1,30 @@
+p {
+  margin: 0;
+}
+
+.box {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  span {
+    font-weight: bold;
+  }
+  .img {
+    height: 90%;
+    aspect-ratio: 1/1;
+    background-color: darkcyan;
+    border-radius: 999px;
+    margin: 0 .5rem;
+  }
+  .content {
+    flex: 1;
+    p:nth-child(1){
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    p:nth-child(2){
+      font-size: .9rem;
+    }
+  }
+}
