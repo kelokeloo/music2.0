@@ -9,8 +9,8 @@ export function RangeItem({ range }) {
         <img></img>
       </div>
       <div className={classes.content}>
-        <p>name</p>
-        <p>singer</p>
+        <div>name</div>
+        <div>singer</div>
       </div>
     </div>
   );

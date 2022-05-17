@@ -1,0 +1,49 @@
+@import "../../global.scss";
+
+.box {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 3.5rem;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  section {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    transition: background-color .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.navItemBox {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.activedStyle {
+  background-color: $themeColor; 
+  opacity: 1;
+  svg{
+    color: white;
+  }
+}
+.notify {
+  position: absolute;
+  top: .3rem;
+  right: 1.5rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: $themeColor;
+  
+}
+
+

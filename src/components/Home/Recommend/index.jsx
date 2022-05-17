@@ -38,7 +38,7 @@ export default function Recommend() {
         >
           {musics.map((music) => {
             return (
-              <SwiperSlide onClick={() => SwiperClick(music)}>
+              <SwiperSlide key={music._id} onClick={() => SwiperClick(music)}>
                 <div className={classes.swiper}>
                   <img src={music.img} alt={music.name} />
                   <p className={classes.discription}>{music.name}</p>

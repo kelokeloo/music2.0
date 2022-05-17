@@ -14,5 +14,11 @@
   border-bottom: 1px solid $lineColor;
 }
 .RecommendBox {
-  
+  overflow: hidden;
+}
+.box {
+  padding: 1rem;
+}
+.placeHolder {
+  height: 6.5rem;
 }

@@ -5,7 +5,7 @@ import { Category } from "../../components/Home/Category";
 import { Hot } from "../../components/Home/Hot";
 export function Home() {
   return (
-    <div>
+    <div className={classes.box}>
       <header className={classes.searchBox}>
         <SearchOutlined className={[classes.Icon]}></SearchOutlined>
       </header>
@@ -21,6 +21,7 @@ export function Home() {
       <section className={classes.hot}>
         <Hot></Hot>
       </section>
+      <div className={classes.placeHolder}></div>
     </div>
   );
 }

@@ -17,7 +17,7 @@ export function SignIn() {
           reject();
           return;
         }
-        const { token, userInfo } = result;
+        const { token, userInfo } = result.data;
         console.log(result);
         resolve({ token, userInfo });
       });
