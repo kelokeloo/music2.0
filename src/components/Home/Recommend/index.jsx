@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-cards";
 import "./styles.css";
 import classes from "./index.module.scss";
 import { EffectCards } from "swiper";
-
 import { getLikeData } from "../../../Api/home";
+import { PlayerCtx } from "../../../../Context/PlayerContext";
 
 function useFetch(setMusics) {
   useEffect(() => {
@@ -23,7 +23,10 @@ function useFetch(setMusics) {
 export default function Recommend() {
   const [musics, setMusics] = useState([]);
   useFetch(setMusics);
+  const { addToMusics } = useContext(PlayerCtx);
   function SwiperClick(music) {
+    addToMusics(music);
+    // console.log(value);
     console.log(music);
   }
   return (

@@ -14,16 +14,26 @@
   .img {
     height: 100%;
     transform: scale(1) translateY(-20%);
-    border-radius: 999px;
+    // border-radius: 999px;
     aspect-ratio: 1/1;
     background-color: white;
-    border: 1px solid $themeColor;
+    // border: 1px solid $themeColor;
+    position: relative;
     & :nth-child(1){
       height: 100%;
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    .loading {
+      padding: .7rem;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $themeColor;
     }
   }
   .music {
