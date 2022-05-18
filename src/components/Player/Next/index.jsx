@@ -4,7 +4,6 @@ const ctrlStyle = {
 export function Next(props) {
   const { next } = props;
   function handleClick() {
-    console.log("click");
     next();
   }
   return (

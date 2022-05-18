@@ -3,7 +3,6 @@ import { LoadingOutlined } from "@ant-design/icons";
 import { useContext } from "react";
 import { PlayerCtx } from "../../../Context/PlayerContext";
 export function MiniPlayer({ showPlayer }) {
-  console.log(useContext(PlayerCtx));
   const { curState, play, pause, curMusic } = useContext(PlayerCtx);
   const {
     img,

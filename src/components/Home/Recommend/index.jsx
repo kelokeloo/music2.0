@@ -12,7 +12,6 @@ function useFetch(setMusics) {
   useEffect(() => {
     async function fetch() {
       const { code, data } = await getLikeData();
-      console.log(data);
       if (code === -1) return;
       setMusics(data);
     }
@@ -26,8 +25,6 @@ export default function Recommend() {
   const { addToMusics } = useContext(PlayerCtx);
   function SwiperClick(music) {
     addToMusics(music);
-    // console.log(value);
-    console.log(music);
   }
   return (
     <>

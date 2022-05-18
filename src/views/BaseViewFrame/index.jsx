@@ -9,7 +9,6 @@ import { useState } from "react";
 export function BaseViewFrame() {
   const [playerDisable, setPlayerDisable] = useState(false);
   function showPlayer() {
-    console.log("show");
     setPlayerDisable(true);
   }
   function hiddenPlayer() {

@@ -10,7 +10,6 @@ import { useLocation } from "react-router-dom";
 
 function useAddressEffect(setActived, Location) {
   useEffect(() => {
-    console.log(Location);
     const { pathname } = Location;
     switch (pathname) {
       case "/":
