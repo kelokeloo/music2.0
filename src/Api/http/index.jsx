@@ -3,7 +3,7 @@ const config = {
   timeout: 5000,
 };
 const http = axios.create(config);
-export const serverAddress = "http://localhost:3002/";
+export const serverAddress = "http://localhost:3002";
 
 // 请求拦截
 http.interceptors.request.use(

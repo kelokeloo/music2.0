@@ -20,11 +20,23 @@ function _canPlay(audio) {
 }
 
 // 加载播放列表
-function _loadList() {}
+function _loadMusics(
+  musics,
+  music,
+  setMusics,
+  setCurMusic,
+  setCurState,
+  setCanPlayState
+) {
+  setCurState(true);
+  setCanPlayState(false);
+  setMusics(musics);
+  setCurMusic(music);
+  console.log("load", musics, music);
+}
 // 获取播放列表
 function _getList(musics) {}
-// 播放指定的歌曲
-function _playMusic(musicId) {}
+
 // 将音乐插入播放列表
 function _addMusic(setCurMusic, setMusics, music, setCanPlayState) {
   // 设置播放状态
@@ -176,6 +188,16 @@ export function PlayerContext({ children }) {
     },
     prev: () => {
       _prev(curMusic, musics, setCurMusic, setCurState, setCanPlayState);
+    },
+    loadMusics: (musics, music) => {
+      _loadMusics(
+        musics,
+        music,
+        setMusics,
+        setCurMusic,
+        setCurState,
+        setCanPlayState
+      );
     },
   };
 

@@ -18,8 +18,10 @@ export function BaseViewFrame() {
     <div className={classes.box}>
       <PlayerContext>
         <Outlet></Outlet>
-        <MiniPlayer showPlayer={showPlayer}></MiniPlayer>
-        <Tab></Tab>
+        <div className={classes.float}>
+          <MiniPlayer showPlayer={showPlayer}></MiniPlayer>
+          <Tab></Tab>
+        </div>
         <Player show={playerDisable} hiddenPlayer={hiddenPlayer}></Player>
       </PlayerContext>
     </div>

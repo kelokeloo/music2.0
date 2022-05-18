@@ -52,9 +52,6 @@ export function Player(props) {
       return like;
     });
   }
-  useEffect(() => {
-    console.log("[like state]", like);
-  }, [like]);
 
   return (
     <div className={classes.box} style={{ top: show ? "0" : "100%" }}>

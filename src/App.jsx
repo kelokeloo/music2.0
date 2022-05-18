@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import classes from "./App.module.scss";
 //auth
 import { SignIn } from "./views/Auth/SignIn";
@@ -7,6 +7,8 @@ import { RequireAuth } from "./components/Auth/RequireAuth";
 
 import { BaseViewFrame } from "./views/BaseViewFrame";
 import { Home } from "./views/Home";
+import { Album } from "./views/Album";
+import { Category } from "./views/Category";
 
 function App() {
   return (
@@ -19,6 +21,24 @@ function App() {
               element={
                 <RequireAuth>
                   <Home />
+                </RequireAuth>
+              }
+            ></Route>
+            <Route
+              path="album"
+              element={
+                <RequireAuth>
+                  <Outlet></Outlet>
+                </RequireAuth>
+              }
+            >
+              <Route path=":albumId" element={<Album></Album>}></Route>
+            </Route>
+            <Route
+              path="navigate"
+              element={
+                <RequireAuth>
+                  <Category></Category>
                 </RequireAuth>
               }
             ></Route>
