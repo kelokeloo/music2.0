@@ -18,7 +18,6 @@ export async function setUserLikeMusic(userId, musicId) {
       userId,
       musicId,
     });
-    console.log("res", res);
     return res;
   } catch (e) {
     console.error(e);

@@ -1,11 +1,11 @@
 import classes from "./index.module.scss";
 export function MusicItem(props) {
-  const { music, musicClick } = props;
+  const { music, musicClick, tag } = props;
   const { img, name, singer } = music;
 
   function handleClick() {
     const musicId = music._id;
-    musicClick(musicId);
+    musicClick(music);
   }
   return (
     <div className={classes.box} onClick={handleClick}>
@@ -13,7 +13,10 @@ export function MusicItem(props) {
         <img src={img} alt={name} />
       </div>
       <div className={classes.content}>
-        <div>{name}</div>
+        <div className={classes.NameBox}>
+          <span>{name}</span>
+          <span>{tag ? tag : null}</span>
+        </div>
         <div>{singer}</div>
       </div>
     </div>

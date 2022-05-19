@@ -42,3 +42,30 @@ export async function getMusicById(musicId) {
     return { code: -1, msg: "请求失败" };
   }
 }
+
+/**
+ * 根据指定歌手，获取该歌手的所有音乐
+ */
+
+export async function getMusicsBySinger(singer) {
+  try {
+    const res = await http.get("/api/music/singer", {
+      params: {
+        singer,
+      },
+    });
+    let { code, data } = res;
+    if (code === -1) return res;
+    // 添加baseUrl
+    data = data.map((music) => {
+      music.img = serverAddress + music.img;
+      music.source = serverAddress + music.source;
+      return music;
+    });
+    res.data = data;
+
+    return res;
+  } catch (e) {
+    return { code: -1, msg: "请求失败" };
+  }
+}

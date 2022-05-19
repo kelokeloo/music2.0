@@ -1,0 +1,22 @@
+.OutBox {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 3rem;
+}
+.box {
+  overflow: auto;
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.channel {
+  margin: .5rem 0;
+  display: flex;
+  justify-content: center;
+}
+.content {
+  flex: 1;
+  margin-top: .5rem;
+}

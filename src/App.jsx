@@ -9,6 +9,7 @@ import { BaseViewFrame } from "./views/BaseViewFrame";
 import { Home } from "./views/Home";
 import { Album } from "./views/Album";
 import { Category } from "./views/Category";
+import { Search } from "./views/Search";
 
 function App() {
   return (
@@ -39,6 +40,14 @@ function App() {
               element={
                 <RequireAuth>
                   <Category></Category>
+                </RequireAuth>
+              }
+            ></Route>
+            <Route
+              path="search"
+              element={
+                <RequireAuth>
+                  <Search></Search>
                 </RequireAuth>
               }
             ></Route>

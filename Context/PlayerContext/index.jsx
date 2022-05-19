@@ -32,7 +32,6 @@ function _loadMusics(
   setCanPlayState(false);
   setMusics(musics);
   setCurMusic(music);
-  console.log("load", musics, music);
 }
 // 获取播放列表
 function _getList(musics) {}
