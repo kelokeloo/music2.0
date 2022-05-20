@@ -35,16 +35,22 @@ function useReceiveMsg(ws, setMessages, Location) {
       // message is socketFrame
       const { data } = message;
       const { from, to } = data;
+
       // data is DialogMessage
       // 添加到消息列表当中
       setMessages((messages) => {
+        // 判断当前Location
+        if (window.location.pathname === `/dialog/${from}`) {
+          messages = messages.map((message) => {
+            if (message.from === from && message.to === to) message.read = true;
+            return message;
+          });
+          readMessage(from, to);
+          data.read = true;
+        }
         messages.push(data);
         return [...messages];
       });
-      // 判断当前Location
-      if (Location.pathname === `/dialog/${from}`) {
-        readMessage(from, to);
-      }
     };
   }, [ws]);
 }

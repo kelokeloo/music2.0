@@ -63,6 +63,16 @@ function useGetUser(userId) {
   return user;
 }
 
+/**
+ * 第一次进来的时候读取信息
+ */
+function useFirstInRead(messagesRaw, from, to) {
+  messagesRaw = messagesRaw.map((message) => {
+    if (message.from === from && message.to === to) message.read = true;
+    return message;
+  });
+}
+
 export function Dialog() {
   const { fromId } = useParams();
   const curUserId = sessionStorage.getItem("_id");
@@ -70,6 +80,7 @@ export function Dialog() {
   const { messages: messagesRaw, sendMsg } = useContext(MessageCtx);
   const messages = MsgFilter(messagesRaw, fromId);
   useToBottom(contentRef, messagesRaw);
+  useFirstInRead(messagesRaw, fromId, curUserId);
 
   const fromUser = useGetUser(fromId);
   const curUser = useGetUser(curUserId);

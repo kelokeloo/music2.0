@@ -70,6 +70,20 @@ export function ChatList() {
     });
     return count;
   }
+  function getUnreadMsgCount(item, from, to) {
+    const { messages } = item;
+    let count = 0;
+    messages.forEach((message) => {
+      if (
+        message.from === from &&
+        message.to === to &&
+        message.read === false
+      ) {
+        count++;
+      }
+    });
+    return count;
+  }
 
   return (
     <div className={classes.box}>
@@ -86,7 +100,11 @@ export function ChatList() {
               img={img}
               nickName={nickName}
               newMessage={getLatestMsg(item)}
-              count={0}
+              count={getUnreadMsgCount(
+                item,
+                _id,
+                sessionStorage.getItem("_id")
+              )}
               key={belong._id}
             ></ChatItem>
           );
