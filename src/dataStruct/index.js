@@ -16,11 +16,12 @@ export function socketFrame(type, data) {
  * @param {{type: "text" | "music", content: any}} data
  */
 
-export function DialogMessageFrame(from, to, data, time) {
+export function DialogMessageFrame(from, to, data, time, read) {
   return {
     from,
     to,
     data,
     time,
+    read,
   };
 }

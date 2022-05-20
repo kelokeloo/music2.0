@@ -10,3 +10,16 @@ export async function getAllMessages() {
     return { code: -1, msg: "请求失败" };
   }
 }
+export async function readMessage(from, to) {
+  try {
+    await http.get("/api/message/read", {
+      params: {
+        from,
+        to,
+      },
+    });
+  } catch (e) {
+    console.log(e);
+    return { code: -1, msg: "请求失败" };
+  }
+}
