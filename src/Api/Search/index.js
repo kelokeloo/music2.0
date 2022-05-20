@@ -7,7 +7,6 @@ export async function search(keyword) {
         keyword,
       },
     });
-    console.log("fetch", result);
     let { code, data } = result;
     if (code === -1) return result;
     data = data.map((item) => {

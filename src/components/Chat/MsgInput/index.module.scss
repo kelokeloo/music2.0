@@ -1,0 +1,26 @@
+.box {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: .2rem;
+  margin: .5rem;
+  padding-top: .8rem;
+  border-top: 1px solid #aaa;
+  &>:nth-child(1){
+    aspect-ratio: 1/1;
+    font-size: 1.2rem;
+  }
+  &>:nth-child(2){
+    margin: 0 .5rem;
+  }
+  &>:nth-child(3){
+    width: 3rem;
+    height: 2rem;
+    background-color: rgb(76, 175, 80);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .2rem;
+  }
+}

@@ -1,0 +1,18 @@
+@import "../../../global.scss";
+.header {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.icon {
+  font-size: 1.6rem;
+  svg {
+    color: $themeColor;
+  }
+}
+.content {
+  padding: 0 .5rem;
+  &>:nth-child(n){
+    margin-bottom: .2rem;
+  }
+}

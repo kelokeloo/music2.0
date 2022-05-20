@@ -1,0 +1,11 @@
+@import "../../../global.scss";
+.box {
+  display: inline-block;
+  height: 1rem;
+  aspect-ratio: 1/1;
+  text-align: center;
+  line-height: 1rem;
+  background-color: $themeColor;
+  color: white;
+  border-radius: 999px;
+}

@@ -6,7 +6,7 @@ import {
 } from "@ant-design/icons";
 import classes from "./index.module.scss";
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function useAddressEffect(setActived, Location) {
   useEffect(() => {
@@ -14,6 +14,9 @@ function useAddressEffect(setActived, Location) {
     switch (pathname) {
       case "/":
         setActived(0);
+        break;
+      case "/chatlist":
+        setActived(1);
         break;
 
       default:
@@ -26,6 +29,7 @@ function useAddressEffect(setActived, Location) {
 export function Tab() {
   const [actived, setActived] = useState(-1);
   const Location = useLocation();
+  const Navigate = useNavigate();
 
   // 副作用 根据路由变化来决定当前actived的值，并通过actived值控制是否显示
   useAddressEffect(setActived, Location);
@@ -33,6 +37,17 @@ export function Tab() {
   function ClickTab(index) {
     // 直接写跳转的位置，不必修改SetActived
     // setActived(index);
+    switch (index) {
+      case 0:
+        Navigate("/");
+        break;
+      case 1:
+        Navigate("/chatlist");
+        break;
+
+      default:
+        break;
+    }
   }
 
   const layout = {

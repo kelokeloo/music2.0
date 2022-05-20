@@ -17,7 +17,6 @@ function AlbumRender({ album }) {
 function useMusicEffect(setMusics, music) {
   const { singer } = music;
   async function fetch() {
-    console.log("[singer]", singer);
     const result = await getMusicsBySinger(singer);
     // 筛选出 3首作为推荐的音乐，排除当前音乐
     const { code, data } = result;
@@ -25,7 +24,6 @@ function useMusicEffect(setMusics, music) {
     // 去除该首
     const showData = data.filter((item) => item._id !== music._id).slice(0, 3);
     setMusics(showData);
-    console.log("相关推荐", result, showData);
   }
   useEffect(() => {
     fetch();

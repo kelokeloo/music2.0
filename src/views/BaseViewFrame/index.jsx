@@ -5,6 +5,7 @@ import { MiniPlayer } from "../../components/MiniPlayer";
 import { Player } from "../../components/Player";
 import { PlayerContext } from "../../../Context/PlayerContext";
 import { useState } from "react";
+import { MessageContext } from "../../../Context/MessageContext";
 
 export function BaseViewFrame() {
   const [playerDisable, setPlayerDisable] = useState(false);
@@ -17,12 +18,14 @@ export function BaseViewFrame() {
   return (
     <div className={classes.box}>
       <PlayerContext>
-        <Outlet></Outlet>
-        <div className={classes.float}>
-          <MiniPlayer showPlayer={showPlayer}></MiniPlayer>
-          <Tab></Tab>
-        </div>
-        <Player show={playerDisable} hiddenPlayer={hiddenPlayer}></Player>
+        <MessageContext>
+          <Outlet></Outlet>
+          <div className={classes.float}>
+            <MiniPlayer showPlayer={showPlayer}></MiniPlayer>
+            <Tab></Tab>
+          </div>
+          <Player show={playerDisable} hiddenPlayer={hiddenPlayer}></Player>
+        </MessageContext>
       </PlayerContext>
     </div>
   );

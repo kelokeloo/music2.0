@@ -10,6 +10,8 @@ import { Home } from "./views/Home";
 import { Album } from "./views/Album";
 import { Category } from "./views/Category";
 import { Search } from "./views/Search";
+import { ChatList } from "./views/Chat/ChatList";
+import { Dialog } from "./views/Chat/Dialog";
 
 function App() {
   return (
@@ -48,6 +50,22 @@ function App() {
               element={
                 <RequireAuth>
                   <Search></Search>
+                </RequireAuth>
+              }
+            ></Route>
+            <Route
+              path="chatlist"
+              element={
+                <RequireAuth>
+                  <ChatList></ChatList>
+                </RequireAuth>
+              }
+            ></Route>
+            <Route
+              path="dialog/:fromId"
+              element={
+                <RequireAuth>
+                  <Dialog></Dialog>
                 </RequireAuth>
               }
             ></Route>
