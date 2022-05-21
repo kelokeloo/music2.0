@@ -1,6 +1,6 @@
 import axios from "axios";
 const config = {
-  timeout: 5000,
+  timeout: 10000,
 };
 const http = axios.create(config);
 export const serverAddress = "http://localhost:3002";

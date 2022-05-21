@@ -76,3 +76,21 @@ export async function unLikeMemory(memoryId, userId) {
     return { code: -1, msg: "请求失败" };
   }
 }
+
+export async function addComment(memoryId, comment) {
+  try {
+    const result = await http.get("/api/memory/addComment", {
+      params: {
+        memoryId,
+        content: comment.content,
+        from: comment.from,
+        to: comment.to,
+        time: comment.time,
+      },
+    });
+    return result;
+  } catch (e) {
+    console.log(e);
+    return { code: -1, msg: "请求失败" };
+  }
+}
