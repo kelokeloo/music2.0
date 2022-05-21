@@ -4,9 +4,19 @@ import { useContext, useState, useEffect } from "react";
 import { MessageCtx } from "../../../../Context/MessageContext";
 import { ChatItem } from "../../../components/Chat/ChatItem";
 import { getUserInfo } from "../../../Api/user";
+import { useNavigate } from "react-router-dom";
+import { SearchDrawer } from "../SearchDrawer";
 
 function MapChannel(messagesRaw) {
+  const userId = sessionStorage.getItem("_id");
   const map = new Map();
+  console.log("[messagesRaw]", messagesRaw);
+  messagesRaw = messagesRaw.filter((message) => {
+    if (message.from === userId || message.to === userId) {
+      return true;
+    } else return false;
+  });
+
   messagesRaw.forEach((msg) => {
     const userId = sessionStorage.getItem("_id");
     const { from, to } = msg;
@@ -54,7 +64,28 @@ function useFetchUser(messagesRaw) {
 
 export function ChatList() {
   const { messages: messagesRaw } = useContext(MessageCtx);
+  const [drawerVisible, setDrawerVisible] = useState();
   const messages = useFetchUser(messagesRaw);
+
+  /**
+   * 排序
+   */
+  function MsgsSort() {
+    this.sort((a, b) => {
+      // a的最近一条消息的时间, b的最近一条消息的时间
+      function getLastMsgTime(messages) {
+        const length = messages.length;
+        if (length === 0) return 0;
+        return Number(messages[length - 1].time);
+      }
+      const timeA = getLastMsgTime(a.messages);
+      const timeB = getLastMsgTime(b.messages);
+      return timeB - timeA;
+    });
+    return this;
+  }
+  messages.MsgsSort = MsgsSort;
+  const Navigate = useNavigate();
 
   function getLatestMsg(item) {
     const { messages: msgs } = item;
@@ -85,13 +116,20 @@ export function ChatList() {
     return count;
   }
 
+  function handleSearchClick() {
+    setDrawerVisible(true);
+  }
+  function handleDrawerClose() {
+    setDrawerVisible(false);
+  }
+
   return (
     <div className={classes.box}>
       <header className={classes.header}>
-        <SearchOutlined className={classes.icon} />
+        <SearchOutlined className={classes.icon} onClick={handleSearchClick} />
       </header>
       <div className={classes.content}>
-        {messages.map((item) => {
+        {messages.MsgsSort().map((item) => {
           const { belong } = item;
           const { img, nickName, _id } = belong;
           return (
@@ -110,6 +148,10 @@ export function ChatList() {
           );
         })}
       </div>
+      <SearchDrawer
+        visible={drawerVisible}
+        close={handleDrawerClose}
+      ></SearchDrawer>
     </div>
   );
 }

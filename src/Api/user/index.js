@@ -18,3 +18,27 @@ export async function getUserInfo(userId) {
     return { code: -1, msg: "请求失败" };
   }
 }
+
+/**
+ * 搜索用户
+ */
+export async function searchUser(value) {
+  try {
+    const result = await http.get("/api/user/searchuser", {
+      params: {
+        value,
+      },
+    });
+    let { code, data } = result;
+    if (code === -1) return result;
+    data = data.map((user) => {
+      user.img = serverAddress + user.img;
+      return user;
+    });
+    result.data = data;
+    return result;
+  } catch (e) {
+    console.log(e);
+    return { code: -1, msg: "请求失败" };
+  }
+}

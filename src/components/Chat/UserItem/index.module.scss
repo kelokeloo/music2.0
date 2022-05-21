@@ -1,0 +1,12 @@
+.box {
+  height: 3rem;
+  display: flex;
+  .img {
+    height: 100%;
+    aspect-ratio: 1/1;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
