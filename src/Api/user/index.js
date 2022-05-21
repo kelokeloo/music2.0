@@ -42,3 +42,61 @@ export async function searchUser(value) {
     return { code: -1, msg: "请求失败" };
   }
 }
+
+/**
+ * 获取用户关注列表
+ */
+
+export async function getUserFocus(userId) {
+  try {
+    const result = await http.get("/api/user/focus", {
+      params: {
+        userId,
+      },
+    });
+    return result;
+  } catch (e) {
+    console.log(e);
+    return { code: -1, msg: "请求失败" };
+  }
+}
+
+/**
+ * 关注用户, 返回true表示成功， false表示失败
+ */
+export async function addFocus(userId, focusId) {
+  try {
+    const result = await http.get("/api/user/addfocus", {
+      params: { userId, focusId },
+    });
+    const { code } = result;
+    if (code !== -1) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (e) {
+    console.log(e);
+    return false;
+  }
+}
+
+/**
+ * 取消关注用户, 返回true表示成功， false表示失败
+ */
+export async function cancelFocus(userId, focusId) {
+  try {
+    const result = await http.get("/api/user/cancelfocus", {
+      params: { userId, focusId },
+    });
+    const { code } = result;
+    if (code !== -1) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (e) {
+    console.log(e);
+    return false;
+  }
+}

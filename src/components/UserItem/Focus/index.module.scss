@@ -1,0 +1,8 @@
+@import "../../../global.scss";
+.box {
+  >div{
+    border: 1px solid $themeColor;
+    padding: 0 .2rem;
+    border-radius: .5rem;
+  }
+}

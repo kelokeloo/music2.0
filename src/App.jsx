@@ -12,6 +12,7 @@ import { Category } from "./views/Category";
 import { Search } from "./views/Search";
 import { ChatList } from "./views/Chat/ChatList";
 import { Dialog } from "./views/Chat/Dialog";
+import { Memory } from "./views/Memory";
 
 function App() {
   return (
@@ -66,6 +67,14 @@ function App() {
               element={
                 <RequireAuth>
                   <Dialog></Dialog>
+                </RequireAuth>
+              }
+            ></Route>
+            <Route
+              path="memory"
+              element={
+                <RequireAuth>
+                  <Memory></Memory>
                 </RequireAuth>
               }
             ></Route>

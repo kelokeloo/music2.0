@@ -18,6 +18,9 @@ function useAddressEffect(setActived, Location) {
       case "/chatlist":
         setActived(1);
         break;
+      case "/memory":
+        setActived(2);
+        break;
 
       default:
         setActived(-1);
@@ -43,6 +46,9 @@ export function Tab() {
         break;
       case 1:
         Navigate("/chatlist");
+        break;
+      case 2:
+        Navigate("/memory");
         break;
 
       default:

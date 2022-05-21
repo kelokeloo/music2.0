@@ -10,7 +10,6 @@ import { SearchDrawer } from "../SearchDrawer";
 function MapChannel(messagesRaw) {
   const userId = sessionStorage.getItem("_id");
   const map = new Map();
-  console.log("[messagesRaw]", messagesRaw);
   messagesRaw = messagesRaw.filter((message) => {
     if (message.from === userId || message.to === userId) {
       return true;

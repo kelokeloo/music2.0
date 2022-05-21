@@ -25,3 +25,12 @@ export function DialogMessageFrame(from, to, data, time, read) {
     read,
   };
 }
+
+export function CommentFrame(content, from, time, to) {
+  return {
+    content,
+    from,
+    time,
+    to,
+  };
+}

@@ -1,6 +1,6 @@
 import { Drawer, Input } from "antd";
 import { useState } from "react";
-import { UserItem } from "../../../components/Chat/UserItem";
+import { UserItem } from "../../../components/UserItem";
 import classes from "./index.module.scss";
 import { searchUser } from "../../../Api/user";
 export function SearchDrawer(props) {
@@ -34,7 +34,7 @@ export function SearchDrawer(props) {
             {users.map((user) => {
               const { account, img, nickName, _id } = user;
               const info = { account, img, nickName, _id };
-              return <UserItem {...info}></UserItem>;
+              return <UserItem {...info} key={_id}></UserItem>;
             })}
           </div>
         </div>

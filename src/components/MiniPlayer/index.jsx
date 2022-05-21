@@ -10,6 +10,7 @@ function useAddressEffect(setShow, Location) {
     switch (pathname) {
       case "/":
       case "/chatlist":
+      case "/memory":
         setShow(true);
         break;
       default:
