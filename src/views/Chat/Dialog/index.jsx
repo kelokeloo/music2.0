@@ -6,6 +6,7 @@ import { MessageBox } from "../../../components/Chat/MessageBox";
 import { MsgInput } from "../../../components/Chat/MsgInput";
 import { MessageCtx } from "../../../../Context/MessageContext";
 import { getUserInfo } from "../../../Api/user";
+import { readMessage } from "../../../Api/message";
 
 /**
  *
@@ -71,6 +72,7 @@ function useFirstInRead(messagesRaw, from, to) {
     if (message.from === from && message.to === to) message.read = true;
     return message;
   });
+  readMessage(from, to);
 }
 
 export function Dialog() {
